@@ -34,9 +34,10 @@ class _MusicPageState extends State<MusicPage> {
         ),
       ]),
       child: Image(
-          width: double.infinity,
-          height: double.infinity,
-          image: FileImage(File(imgDir))),
+        width: double.infinity,
+        height: double.infinity,
+        image: FileImage(File(imgDir)),
+      ),
     );
   }
 

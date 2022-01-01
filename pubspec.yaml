@@ -42,7 +42,7 @@ dependencies:
   path_to_regexp: ^0.4.0
   quiver: ^3.0.1+1
   audioplayers: ^0.20.1
-  path_provider: ^2.0.7
+  path_provider: ^2.0.8
   shared_preferences: ^2.0.9
   intl: ^0.17.0
 

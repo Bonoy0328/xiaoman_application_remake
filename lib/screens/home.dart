@@ -8,6 +8,8 @@ import '../models/poetry.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
+  static const String routeName = "/home";
+
   Article article;
   Music music;
   Poetry poetry;

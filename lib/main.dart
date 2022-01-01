@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xiaoman_application_remake/screens/home.dart';
 import './screens/boot_screen.dart';
 
 void main() {

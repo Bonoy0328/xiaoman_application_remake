@@ -13,8 +13,10 @@ class ArticlePage extends StatefulWidget {
 class _ArticlePageState extends State<ArticlePage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(widget.article.content),
+    return SingleChildScrollView(
+      child: Center(
+        child: Text(widget.article.content),
+      ),
     );
   }
 }
