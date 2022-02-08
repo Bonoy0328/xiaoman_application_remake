@@ -73,15 +73,16 @@ class _BootPageState extends State<BootPage> {
 
   @override
   void initState() {
-    // startTimer();
-    // DateTime dateTime = DateTime.now();
-    // var formatter = DateFormat('yyyy-MM-dd');
-    // String formattedDate = formatter.format(dateTime);
+    startTimer();
+    DateTime dateTime = DateTime.now();
+    var formatter = DateFormat('yyyy-MM-dd');
+    String formattedDate =
+        formatter.format(dateTime.add(const Duration(hours: 8)));
     // print(formattedDate);
     // print(formattedDate.substring(0, 10));
-    // dataManager(formattedDate)
-    // .then((value) => resDict = value)
-    // .whenComplete(() => initSuccess = true);
+    dataManager(formattedDate)
+        .then((value) => resDict = value)
+        .whenComplete(() => initSuccess = true);
     super.initState();
   }
 
@@ -89,78 +90,59 @@ class _BootPageState extends State<BootPage> {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.bottom]);
-    return WillPopScope(
-      onWillPop: () async {
-        int nowExitTime = DateTime.now().millisecondsSinceEpoch;
-        if (nowExitTime - _lastPressedAt > 2000) {
-          _lastPressedAt = nowExitTime;
-          Fluttertoast.showToast(
-              msg: "再次点击退出",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.BOTTOM,
-              timeInSecForIosWeb: 1,
-              backgroundColor: Colors.black45,
-              textColor: Colors.white,
-              fontSize: 16.0);
-          return await Future.value(false);
-        } else {
-          exit(0);
-        }
-      },
-      child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: const Color(0xFFF3F3F1),
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: context.widthPx * 0.5964),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/xiao.svg",
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      color: const Color(0xFFF3F3F1),
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: context.widthPx * 0.5964),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  "assets/images/xiao.svg",
+                  fit: BoxFit.cover,
+                  width: context.widthPx * 0.152,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: context.widthPx * 0.152 * 0.5761,
+                  ),
+                  child: SvgPicture.asset(
+                    "assets/images/man.svg",
                     fit: BoxFit.cover,
                     width: context.widthPx * 0.152,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: context.widthPx * 0.152 * 0.5761,
-                    ),
-                    child: SvgPicture.asset(
-                      "assets/images/man.svg",
-                      fit: BoxFit.cover,
-                      width: context.widthPx * 0.152,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: SvgPicture.asset(
-                    "assets/images/by.svg",
-                    fit: BoxFit.cover,
-                    width: context.widthPx * 0.1947,
-                  ),
+          ),
+          Expanded(
+            child: Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Container(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: SvgPicture.asset(
+                  "assets/images/by.svg",
+                  fit: BoxFit.cover,
+                  width: context.widthPx * 0.1947,
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () async {
-                DateTime dateTime = DateTime.now();
-                var formatter = DateFormat('yyyy-MM-dd');
-                String formattedDate = formatter.format(dateTime);
-                print(formattedDate);
-                resDict = await dataManager(formattedDate);
-              },
-              child: const Icon(Icons.add_reaction_rounded),
-            ),
-          ],
-        ),
+          ),
+          // ElevatedButton(
+          //   onPressed: () async {
+          //     DateTime dateTime = DateTime.now();
+          //     var formatter = DateFormat('yyyy-MM-dd');
+          //     String formattedDate = formatter.format(dateTime);
+          //     print(formattedDate);
+          //     resDict = await dataManager(formattedDate);
+          //   },
+          //   child: const Icon(Icons.add_reaction_rounded),
+          // ),
+        ],
       ),
     );
   }

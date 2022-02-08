@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:xiaoman_application_remake/screens/home.dart';
 import './screens/boot_screen.dart';
 
 void main() {
@@ -15,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        canvasColor: const Color.fromRGBO(255, 254, 229, 1),
+        // canvasColor: const Color.fromRGBO(255, 254, 229, 1),
+        canvasColor: Colors.white,
         colorScheme: const ColorScheme(
           primary: Colors.blue,
           primaryVariant: Colors.black,
@@ -25,23 +25,51 @@ class MyApp extends StatelessWidget {
           onSecondary: Colors.green,
           surface: Colors.amber,
           onSurface: Colors.blueGrey,
-          background: Color.fromRGBO(255, 254, 229, 1),
+          // background: Color.fromRGBO(255, 254, 229, 1),
+          background: Colors.white,
           onBackground: Colors.black,
           error: Colors.lime,
           onError: Colors.red,
           brightness: Brightness.light,
         ),
         textTheme: ThemeData.light().textTheme.copyWith(
-            bodyText1: const TextStyle(
-              color: Colors.black87,
-              fontSize: 20,
-              height: 1.5,
-              fontFamily: 'zhanku',
+              bodyText1: const TextStyle(
+                color: Colors.black87,
+                fontSize: 20,
+                height: 1.5,
+                fontFamily: 'zhanku',
+              ),
+              bodyText2: TextStyle(
+                color: Colors.blueGrey.shade700,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+              button: const TextStyle(
+                color: Colors.grey,
+                fontSize: 20,
+              ),
+              headline1: TextStyle(
+                color: Colors.grey.shade400,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+              headline2: TextStyle(
+                color: Colors.blueGrey.shade700,
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+              ),
+              headline3: const TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+              headline4: const TextStyle(
+                color: Colors.black87,
+                fontSize: 15,
+                height: 1.5,
+                fontFamily: 'zhanku',
+              ),
             ),
-            button: const TextStyle(
-              color: Colors.grey,
-              fontSize: 20,
-            )),
       ),
       home: const BootPage(),
     );

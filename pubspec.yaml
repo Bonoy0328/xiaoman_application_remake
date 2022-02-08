@@ -1,4 +1,4 @@
-name: xiaoman_application_remake
+name: xiaoman
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -37,7 +37,7 @@ dependencies:
   flutter_svg: ^0.23.0+1
   dio: ^4.0.1
   sized_context: ^1.0.0+1
-  like_button: ^2.0.3
+  like_button: ^2.0.4
   fluttertoast: ^8.0.8
   path_to_regexp: ^0.4.0
   quiver: ^3.0.1+1
@@ -45,6 +45,12 @@ dependencies:
   path_provider: ^2.0.8
   shared_preferences: ^2.0.9
   intl: ^0.17.0
+  just_audio: ^0.9.18
+  device_info_plus: ^3.2.1
+  flutter_app_name: ^0.1.0
+
+flutter_app_name:
+  name: "小满"
 
 dev_dependencies:
   flutter_test:
@@ -105,3 +111,18 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  plugin:
+    platforms:
+      android:
+        package: dev.fluttercommunity.plus.device_info
+        pluginClass: DeviceInfoPlusPlugin
+      ios:
+        pluginClass: FLTDeviceInfoPlusPlugin
+      linux:
+        default_package: device_info_plus_linux
+      web:
+        default_package: device_info_plus_web
+      macos:
+        default_package: device_info_plus_macos
+      windows:
+        default_package: device_info_plus_windows

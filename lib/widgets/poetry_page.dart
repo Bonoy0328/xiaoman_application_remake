@@ -32,23 +32,29 @@ class _PoetryPageState extends State<PoetryPage> {
         children: [
           Flexible(
             fit: FlexFit.tight,
-            flex: 3,
-            child: Container(
-              color: Colors.amber,
-              child: Text(
-                widget.poetry.content,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText1,
+            flex: 4,
+            child: Center(
+              child: Container(
+                // color: Colors.amber,
+                child: Text(
+                  widget.poetry.content,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
               ),
             ),
           ),
           dividingLine(context),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.06,
+          ),
           Flexible(
             flex: 2,
             fit: FlexFit.loose,
             child: Container(
-              color: Colors.pink,
-              child: likeShareButton(ButtonId.poetry),
+              // color: Colors.pink,
+              child: likeShareButton(ButtonId.poetry, widget.poetry.likes,
+                  widget.poetry.shares, widget.poetry.date),
             ),
           ),
         ],

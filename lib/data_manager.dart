@@ -87,8 +87,8 @@ Future<Map<String, Object>> dataManager(String date) async {
   } else {
     music.id = response.data["ID"];
     music.date = response.data["Date"];
-    music.file = response.data["musicfile"];
-    music.image = response.data["musicImg"];
+    music.file = response.data["musicfile"].split("media/")[1];
+    music.image = response.data["musicImg"].split("media/")[1];
     music.author = response.data["anthorName"];
     music.name = response.data["musicName"];
     music.likes = response.data["LikesNum"];
@@ -106,16 +106,17 @@ Future<Map<String, Object>> dataManager(String date) async {
 // articleContent: "《印度哲学概论》至：“太子作狮子吼：‘我若不断生、老、病、死、优悲、苦恼，不得阿耨多罗三藐三菩提，要不还此。’”有感而作。我刚刚出了世，已经有了一个漆黑严密的圈儿，远远的罩定我，但是我不觉得。渐的我往外发展，就觉得有它限制阻抑着，并且它似乎也往里收缩─—好害怕啊！圈子里只有黑暗，苦恼悲伤。　　　　它往里收缩一点，我便起来沿着边儿奔走呼号一回。结果呢？它依旧严严密密的罩定我，我也只有屏声静气的，站在当中，不能再动。　　　　它又往里收缩一点，我又起来沿着边儿奔走呼号一回；回数多了，我也疲乏了，─—圈儿啊！难道我至终不能抵抗你？永远幽囚在这里面么？　　　　起来！忍耐！努力！　　　　呀！严密的圈儿，终竟裂了一缝。─—往外看时，圈子外只有光明，快乐，自由。─—只要我能跳出圈儿外！　　《印度哲学概论》至：“太子作狮子吼：‘我若不断生、老、病、死、优悲、苦恼，不得阿耨多罗三藐三菩提，要不还此。’”有感而作。我刚刚出了世，已经有了一个漆黑严密的圈儿，远远的罩定我，但是我不觉得。渐的我往外发展，就觉得有它限制阻抑着，并且它似乎也往里收缩─—好害怕啊！圈子里只有黑暗，苦恼悲伤。 　　它往里收缩一点，我便起来沿着边儿奔走呼号一回。结果呢？它依旧严严密密的罩定我，我也只有屏声静气的，站在当中，不能再动。 　　它又往里收缩一点，我又起来沿着边儿奔走呼号一回；回数多了，我也疲乏了，─—圈儿啊！难道我至终不能抵抗你？永远幽囚在这里面么？ 　　起来！忍耐！努力！　　 　　呀！严密的圈儿，终竟裂了一缝。─—往外看时，圈子外只有光明，快乐，自由。─—只要我能跳出圈儿外！ 　　前途有了希望了，我不是永远不能抵抗它，我不至于永远幽囚在这里面了。努力！忍耐！看我劈开了这苦恼悲伤，跳出圈儿外！"
 // articleImg: "/usr/local/bonoy/media/article/img/Ydata_fAIvGPh.png"
 // articleTitle: "我是你爸爸"
+// url is "www.bonoy0328.com/media/article/img/Ydata_fAIvGPh.png"
   response = await dio.get("https://www.bonoy0328.com/getArticle",
       queryParameters: {"date": date});
   if (response.data["ID"] == null) {
     print("article data is Bad!");
   } else {
-    article.author = response.data["ArticleAnthor"];
+    article.author = response.data["articleAnthor"];
     article.content = response.data["articleContent"];
     article.date = response.data["Date"];
     article.id = response.data["ID"];
-    article.image = response.data["articleImg"];
+    article.image = response.data["articleImg"].split("media/")[1];
     article.title = response.data["articleTitle"];
     article.likes = response.data["LikesNum"];
     article.shares = response.data["SharedNum"];
